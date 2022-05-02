@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "dingobot"
+version = "0.1.0"
+description = "Discord bot written in Python"
+authors = ["dingobar"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+"discord.py" = "^1.7.3"
+pytz = "^2022.1"
+arrow = "^1.2.2"
+humanize = "^4.0.0"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^22.3.0", allow-prereleases = true}
+pytest = "^7.1.2"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
