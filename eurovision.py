@@ -1,7 +1,7 @@
 import arrow
 from humanize import precisedelta, activate
 
-STARTTIME = arrow.get("2022-05-10T21:00:00+02:00")
+STARTTIME = arrow.get("2023-05-10T21:00:00+02:00")
 
 EUROVISION_SLUGS = [
     "eurovision",

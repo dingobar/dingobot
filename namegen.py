@@ -21,7 +21,6 @@ additional_consonants = {
     "st",
     "sh",
     "kn",
-    "cn",
     "tt",
     "kk",
     "pp",
@@ -31,7 +30,7 @@ additional_consonants = {
 }
 
 # These can't be at the beginning of a name (duh!!!)
-mid_consonants = {"ck", "rk", "sr", "nc", "nk"}
+mid_consonants = {"ck", "rk", "sr", "nc", "nk", "cn"}
 
 # When they show up, we draw again so they are rarely chosen
 unlikely_consonants = {"x", "z", "q", "w", "c"}
@@ -103,7 +102,7 @@ class NameGenerator:
         return self._get_consonant(use_middle)
 
     def get_name(self):
-        n = random.randint(2, 6)
+        n = random.randint(2, 8)
         name = []
         i = 0
         while i < n:
