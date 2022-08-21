@@ -1,7 +1,6 @@
 import string
 import random
 
-import click
 
 vowels = ["a", "e", "i", "o", "u"]  # , "æ", "ø", "å"]
 
@@ -40,6 +39,7 @@ consonants = basic_consonants + list(additional_consonants)
 name_endings = [
     "sen",
     "seth",
+    "set",
     "moen",
     "lien",
     "dal",
@@ -62,13 +62,17 @@ name_endings = [
     "vatn",
     "sjø",
     "vann",
+    "vatn",
     "by",
     "land",
-    "lini",
+    "lini",  # Italian inclusivity
     "-sensei",
+    "meyer",
+    "sæter",
+    "-san"  # Japanese (Daniel-san etc.)
 ]
 
-name_cosmetic = ["Mc", "von ", "von der ", "van ", "de ", "del ", "de la ", "De", "of "]
+name_cosmetic = ["Mc", "von ", "von der ", "van ", "van de ", "de ", "del ", "de la ", "De", "of "]
 
 
 class NameGenerator:
@@ -144,14 +148,3 @@ class NameGenerator:
     def get_fullname(self):
         return self.get_name() + " " + self.get_lastname()
 
-
-@click.command()
-@click.option("-n", default=1, help="Number of unique names to generate")
-def main(n):
-    for _ in range(n):
-        namegen = NameGenerator()
-        print(namegen.get_fullname())
-
-
-if __name__ == "__main__":
-    main()

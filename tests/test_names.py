@@ -1,6 +1,6 @@
 import pytest
 
-from namegen import NameGenerator, name_endings
+from dingobot.namegen import NameGenerator, name_endings
 
 
 @pytest.fixture
