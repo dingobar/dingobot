@@ -1,5 +1,6 @@
 import string
 import random
+from typing import List
 
 
 vowels = ["a", "e", "i", "o", "u"]  # , "æ", "ø", "å"]
@@ -69,7 +70,7 @@ name_endings = [
     "-sensei",
     "meyer",
     "sæter",
-    "-san"  # Japanese (Daniel-san etc.)
+    "-san",  # Japanese (Daniel-san etc.)
 ]
 
 name_cosmetic = ["Mc", "von ", "von der ", "van ", "van de ", "de ", "del ", "de la ", "De", "of "]
@@ -148,3 +149,10 @@ class NameGenerator:
     def get_fullname(self):
         return self.get_name() + " " + self.get_lastname()
 
+
+def generate_names(n: int) -> List[str]:
+    names = []
+    for _ in range(n):
+        namegen = NameGenerator()
+        names.append(namegen.get_fullname())
+    return names
