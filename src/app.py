@@ -1,3 +1,4 @@
+from os import environ
 from typing import List
 from fastapi import FastAPI, HTTPException
 from mangum import Mangum
@@ -5,8 +6,9 @@ from pydantic import BaseModel
 
 from dingobot.namegen import generate_names
 from dingobot.eurovision import time_until_eurovision
+from dingobot.etymology import NameEtymology, get_etymology
 
-stage = "Prod"  # How can I infer it from the environment
+stage = environ.get("STAGE")
 root_path = f"/{stage}" if stage else "/"
 app = FastAPI(title="dingobot", root_path=root_path)
 
@@ -30,6 +32,21 @@ class CountdownValue(BaseModel):
 @app.get("/v1/eurovision/countdown", tags=["Eurovision"], response_model=CountdownValue)
 def eurovision_countdown():
     return CountdownValue(time_until_eurovision=time_until_eurovision())
+
+
+@app.get(
+    "/v1/names/{name}/etymology",
+    tags=["Norske Navn"],
+    description="Lurer du på hva navnet ditt betyr?",
+    response_model=list[NameEtymology],
+)
+def name_etymology(name: str) -> list[NameEtymology]:
+    if len(name) > 30:
+        raise HTTPException(
+            status_code=400, detail="The name is too long - limit to 30 characters max"
+        )
+
+    return get_etymology(name)
 
 
 handler = Mangum(app)

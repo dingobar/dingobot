@@ -1,26 +1,28 @@
 [tool.poetry]
 name = "dingobot"
-version = "0.1.0"
+version = "1.0.0"
 description = "Discord bot written in Python"
 authors = ["dingobar"]
 packages = [
-    { include = "dingobot" }
-]
+    {include = "dingobot", from = "src"}
+    ]
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
 
 [tool.poetry.scripts]
-dingobot = "cli:cli"
+dingobot = "src.cli:cli"
 
 [tool.poetry.dependencies]
 python = ">=3.8.6,<4.0"
-"discord.py" = "*"
 pytz = "*"
 arrow = "*"
 humanize = "*"
 click = "*"
-discord-py-interactions = "^4.2.1"
 fastapi = "^0.79.1"
 uvicorn = {extras = ["standard"], version = "^0.18.2"}
 mangum = "^0.15.1"
+wikipedia = "^1.4.0"
 
 [tool.poetry.dev-dependencies]
 black = {version = "*", allow-prereleases = true}
