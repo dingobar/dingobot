@@ -1,7 +1,6 @@
-import string
 import random
+import string
 from typing import List
-
 
 vowels = ["a", "e", "i", "o", "u"]  # , "æ", "ø", "å"]
 
@@ -73,7 +72,18 @@ name_endings = [
     "-san",  # Japanese (Daniel-san etc.)
 ]
 
-name_cosmetic = ["Mc", "von ", "von der ", "van ", "van de ", "de ", "del ", "de la ", "De", "of "]
+name_cosmetic = [
+    "Mc",
+    "von ",
+    "von der ",
+    "van ",
+    "van de ",
+    "de ",
+    "del ",
+    "de la ",
+    "De",
+    "of ",
+]
 
 
 class NameGenerator:

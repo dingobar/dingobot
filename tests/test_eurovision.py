@@ -1,5 +1,7 @@
 import pytest
-from dingobot.eurovision import message_is_about_eurovision, time_until_eurovision
+
+from dingobot.eurovision import (message_is_about_eurovision,
+                                 time_until_eurovision)
 
 
 def test_time_until_esc() -> None:

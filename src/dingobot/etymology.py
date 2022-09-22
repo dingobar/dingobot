@@ -1,6 +1,5 @@
-from pydantic import BaseModel
 import wikipedia
-
+from pydantic import BaseModel
 
 wikipedia.set_lang("no")
 
@@ -64,5 +63,7 @@ def get_etymology(name) -> list[NameEtymology]:
                     summary=_get_wikipedia_summary(part_meaning),
                 )
             )
-        name_meanings.append(NameEtymology(name="".join(name_part), parts=part_meanings))
+        name_meanings.append(
+            NameEtymology(name="".join(name_part), parts=part_meanings)
+        )
     return name_meanings

@@ -1,4 +1,5 @@
 import click
+
 from dingobot.namegen import NameGenerator
 
 

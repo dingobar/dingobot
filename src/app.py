@@ -1,12 +1,13 @@
 from os import environ
 from typing import List
+
 from fastapi import FastAPI, HTTPException
 from mangum import Mangum
 from pydantic import BaseModel
 
-from dingobot.namegen import generate_names
-from dingobot.eurovision import time_until_eurovision
 from dingobot.etymology import NameEtymology, get_etymology
+from dingobot.eurovision import time_until_eurovision
+from dingobot.namegen import generate_names
 
 stage = environ.get("STAGE")
 root_path = f"/{stage}" if stage else "/"
@@ -21,7 +22,9 @@ app = FastAPI(title="dingobot", root_path="/Prod")
 )
 def names(n: int = 1):
     if n < 1 or n > 1000:
-        raise HTTPException(status_code=400, detail=f"n must be in range [1, 1000], got {n}")
+        raise HTTPException(
+            status_code=400, detail=f"n must be in range [1, 1000], got {n}"
+        )
     return generate_names(n)
 
 
