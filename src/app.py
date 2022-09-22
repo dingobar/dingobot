@@ -10,7 +10,7 @@ from dingobot.etymology import NameEtymology, get_etymology
 
 stage = environ.get("STAGE")
 root_path = f"/{stage}" if stage else "/"
-app = FastAPI(title="dingobot", root_path=root_path)
+app = FastAPI(title="dingobot", root_path="/Prod")
 
 
 @app.get(
